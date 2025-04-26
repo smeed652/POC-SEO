@@ -16,6 +16,7 @@ export interface BreadcrumbsProps {
 /**
  * Breadcrumbs molecule — displays a row of breadcrumb items with separators.
  */
+// NOTE: flex and items-center are design tokens for layout and alignment. Update if the design system changes.
 export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = "" }) => (
   <nav className={`flex items-center ${className}`} aria-label="Breadcrumb">
     {items.map((item, idx) => (

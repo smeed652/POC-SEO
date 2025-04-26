@@ -14,6 +14,7 @@ export interface RestaurantTileProps {
 /**
  * RestaurantTile molecule — combines logo, name, and meta into a tile.
  */
+// NOTE: flex, items-center, gap-3, and flex-col are design tokens for layout and spacing. Update if the design system changes.
 export const RestaurantTile: React.FC<RestaurantTileProps> = ({ logo, name, cuisine, distance, className = "" }) => (
   <div className={`flex items-center gap-3 ${className}`}>
     <RestaurantLogo src={logo} alt={name} />
