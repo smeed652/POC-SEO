@@ -1,0 +1,24 @@
+---
+import '../styles/global.css';
+---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartMenu SSG Example</title>
+    <meta name="description" content="SEO-optimized static site for SmartMenu admin panel." />
+    <meta property="og:title" content="SmartMenu SSG Example" />
+    <meta property="og:description" content="SEO-optimized static site for SmartMenu admin panel." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourdomain.com" />
+    <meta property="og:image" content="/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SmartMenu SSG Example" />
+    <meta name="twitter:description" content="SEO-optimized static site for SmartMenu admin panel." />
+    <meta name="twitter:image" content="/og-image.png" />
+    <slot name="head" />
+  </head>
+  <body class="font-sans bg-white text-gray-900">
+    <slot />
+  </body>
+</html>

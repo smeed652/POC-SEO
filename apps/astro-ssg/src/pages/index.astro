@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/SEOLayout.astro';
+import { SampleAtom } from '@ui/atoms';
+---
+
+<Layout>
+  <h1 class="text-4xl font-bold mb-4">SmartMenu Static Site Example</h1>
+  <p class="mb-2">This page is rendered at build time for SEO. All meta tags are present in the output HTML.</p>
+  <ul class="list-disc pl-6 mb-4">
+    <li>SEO meta tags (OpenGraph, Twitter, description, etc.)</li>
+    <li>Uses Tailwind CSS for styling</li>
+    <li>Supports React components</li>
+    <li>Extend with your own pages and components</li>
+  </ul>
+  <hr class="my-4" />
+  <h2 class="text-2xl font-semibold mb-2">Hello World Test</h2>
+  <p class="mb-2">Below is the <b>SampleAtom</b> atomic React component rendered statically via Astro:</p>
+  <div class="mb-4">
+    <SampleAtom label="Hello, Atomic World!" className="bg-yellow-100" />
+  </div>
+</Layout>

@@ -1,0 +1,1 @@
+export { SampleAtom } from './SampleAtom';
