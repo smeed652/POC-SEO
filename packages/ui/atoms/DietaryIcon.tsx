@@ -1,0 +1,31 @@
+import React from "react";
+
+export interface DietaryIconProps {
+  type: "vegan" | "vegetarian" | "gluten-free" | "dairy-free" | "nut-free" | "spicy";
+  className?: string;
+}
+
+/**
+ * DietaryIcon atom — renders a dietary icon for the specified type.
+ */
+export const DietaryIcon: React.FC<DietaryIconProps> = ({ type, className = "" }) => {
+  // For demo, simple SVGs. Swap with custom icons as needed.
+  switch (type) {
+    case "vegan":
+      return <svg className={className} width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#22C55E" /><path d="M6 10l3 3 5-5" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>;
+    case "vegetarian":
+      return <svg className={className} width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#A3E635" /><path d="M7 13l3-3 3 3" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>;
+    case "gluten-free":
+      return <svg className={className} width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#FBBF24" /><path d="M6 14l8-8" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>;
+    case "dairy-free":
+      return <svg className={className} width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#F472B6" /><path d="M6 14l8-8" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>;
+    case "nut-free":
+      return <svg className={className} width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#60A5FA" /><path d="M6 14l8-8" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>;
+    case "spicy":
+      return <svg className={className} width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#F87171" /><path d="M10 6v5" stroke="#fff" strokeWidth="2" strokeLinecap="round"/><circle cx="10" cy="13" r="1" fill="#fff"/></svg>;
+    default:
+      return null;
+  }
+};
+
+export default DietaryIcon;
