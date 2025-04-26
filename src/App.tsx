@@ -1,6 +1,6 @@
 import React from "react";
-import SampleSeoPage from "@ui/pages/SampleSeoPage";
+import DishDetailPage from "@ui/pages/DishDetailPage";
 
-const App: React.FC = () => <SampleSeoPage />;
+const App: React.FC = () => <DishDetailPage />;
 
 export default App;

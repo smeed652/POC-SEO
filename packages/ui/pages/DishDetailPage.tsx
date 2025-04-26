@@ -8,7 +8,7 @@ import DietaryBanner from '../molecules/DietaryBanner';
 import CarouselContainer from '../organisms/CarouselContainer';
 import type { Dish } from '../molecules/DishCard';
 
-const SampleSeoPage: React.FC = () => {
+const DishDetailPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <SeoNavigation />
@@ -124,4 +124,4 @@ const SampleSeoPage: React.FC = () => {
   );
 };
 
-export default SampleSeoPage;
+export default DishDetailPage;
