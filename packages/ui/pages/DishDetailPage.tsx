@@ -3,8 +3,11 @@ import PageContainer from '../layout/PageContainer';
 import { SeoNavigation } from '../organisms/SeoNavigation';
 import Breadcrumbs from '../molecules/Breadcrumbs';
 import RestaurantTile from '../molecules/RestaurantTile';
-import DishDetailCard from '../molecules/DishDetailCard';
-import DietaryBanner from '../molecules/DietaryBanner';
+import ShareDishButton from '../molecules/ShareDishButton';
+import CtaBanner from '../molecules/CtaBanner';
+// import DishIngredientsSection from '../molecules/DishIngredientsSection';
+import NutritionTable from '../molecules/NutritionTable';
+
 import CarouselContainer from '../organisms/CarouselContainer';
 import type { Dish } from '../molecules/DishCard';
 import BreadcrumbItem from '../atoms/BreadcrumbItem';
@@ -25,40 +28,13 @@ import OrderButton from '../atoms/OrderButton';
 import RestaurantLogo from '../atoms/RestaurantLogo';
 import RestaurantMeta from '../atoms/RestaurantMeta';
 import RestaurantName from '../atoms/RestaurantName';
-import SampleAtom from '../atoms/SampleAtom';
+
 import IconArrow from '../atoms/icons/IconArrow';
 import IconMenu from '../atoms/icons/IconMenu';
 import IconUser from '../atoms/icons/IconUser';
 
 // ...DishDetailPage definition remains unchanged...
 
-const AtomicShowcase: React.FC = () => (
-  <section className="my-12 p-6 bg-white border rounded-lg shadow-sm">
-    <h2 className="text-xl font-bold mb-4">Atomic Components Showcase</h2>
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-      <div><b>BreadcrumbItem:</b> <BreadcrumbItem label="Menu" href="/menus" /></div>
-      <div><b>BreadcrumbSeparator:</b> <BreadcrumbSeparator /></div>
-      <div><b>CategoryLabel:</b> <CategoryLabel label="Vegan" /></div>
-      <div><b>DietaryIcon:</b> <DietaryIcon type="vegan" /></div>
-      <div><b>DietaryText:</b> <DietaryText text="Gluten-Free" /></div>
-      <div><b>DishDescription:</b> <DishDescription description="A tasty dish." /></div>
-      <div><b>DishImage:</b> <DishImage src="/assets/dish-sushi-salad-combo.png" alt="Dish" className="w-72 h-36 rounded-tl-[10px] rounded-tr-[10px] object-cover" /></div>
-      <div><b>DishIngredients:</b> <DishIngredients ingredients={["Rice", "Avocado"]} /></div>
-      <div><b>DishName:</b> <DishName name="Sushi Roll" /></div>
-      <div><b>DishNutrition:</b> <DishNutrition calories={200} protein={10} fat={5} carbs={30} /></div>
-      <div><b>DishStats:</b> <DishStats calories={200} sizes={2} customizable={true} /></div>
-      <div><b>HeartIcon:</b> <HeartIcon active /></div>
-      <div><b>Logo:</b> <Logo className="w-10 h-10 object-contain rounded-full" /></div>
-      <div><b>NavLink:</b> <NavLink href="/about">About</NavLink> </div>
-      <div><b>OrderButton:</b> <OrderButton onClick={()=>{}}>Order Now</OrderButton></div>
-      <div><b>RestaurantLogo:</b> <RestaurantLogo src="/assets/honeygrow-badge-icon.png" alt="Logo" className="w-10 h-10 rounded-full object-cover border border-zinc-200 bg-white" /></div>
-      <div><b>RestaurantMeta:</b> <RestaurantMeta cuisine="Italian" distance="2 mi" /></div>
-      <div><b>RestaurantName:</b> <RestaurantName name="Pasta House" /></div>
-      <div><b>SampleAtom:</b> <SampleAtom label="Demo" /></div>
-      <div><b>IconArrow:</b> <IconArrow /> <b>IconMenu:</b> <IconMenu /> <b>IconUser:</b> <IconUser /></div>
-    </div>
-  </section>
-);
 
 const DishDetailPage: React.FC = () => {
   return (
@@ -76,104 +52,110 @@ const DishDetailPage: React.FC = () => {
           />
         </div>
 
-        {/* --- Restaurant Tile --- */}
-        <div className="py-2">
+        {/* --- Main Dish Section: Image + Details Side by Side --- */}
+        <div className="flex flex-col md:flex-row gap-8 py-6">
+          {/* Dish Image Left */}
+          <div className="flex-shrink-0 w-full md:w-[340px] flex items-start justify-center">
+            <DishImage
+              src="/assets/mediterranean-burger.png"
+              alt="The Mediterranean Burger"
+              className="w-full max-w-xs h-64 object-cover rounded-2xl shadow-md"
+            />
+          </div>
+          {/* Details Right */}
+          <div className="flex-1 min-w-0">
+            <div className="flex items-start justify-between">
+              <span className="text-xs text-slate-700 font-sans">Restaurant Name</span>
+              <ShareDishButton label="Share Dish" />
+            </div>
+            <div className="flex items-center justify-between mt-1">
+              <h1 className="text-2xl font-bold text-slate-900 font-sans">The Mediterranean Burger</h1>
+            </div>
+            <div className="mt-2 mb-5">
+              <p className="text-base text-slate-600 font-sans">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat
+              </p>
+            </div>
+            <div className="flex flex-col md:flex-row gap-8">
+              {/* Ingredients Left */}
+              <div className="flex-1 min-w-0">
+                <h2 className="text-lg font-semibold text-slate-800 mb-2">Ingredients</h2>
+                <div className="mb-2 flex gap-3">
+                  <span className="flex items-center gap-1 text-slate-500 text-sm font-sans"><DietaryIcon type="soy" /> Contains Soy</span>
+                  <span className="flex items-center gap-1 text-slate-500 text-sm font-sans"><DietaryIcon type="seafood" /> Contains Seafood</span>
+                </div>
+                <div className="text-slate-600 text-sm font-sans">
+                  Nori Seaweed, Rice, Rice Wine Vinegar, Wasabi paste (Horseradish, Sorbitol, Rice Bran Oil, Sugar, Modified Food Starch, Salt, Water, Cellulose, Wasabi, Artificial Flavor, Citric Acid, Turmeric, Xanthan Gum, Artificial Color), Vegetable Oil, White Sugar, Salmon, Tuna, Eel, Shrimp, Pickled Ginger (Ginger, Rice Wine Vinegar, Water, Salt, Sugar), Salmon Roe, Soy Sauce (gluten free).
+                </div>
+              </div>
+              {/* Nutrition Right */}
+              <div className="flex-1 min-w-0">
+                <h2 className="text-lg font-semibold text-slate-800 mb-2">Nutrition</h2>
+                <NutritionTable
+                  rows={[
+                    { label: "520", value: "Calories" },
+                    { label: "175", value: "Calories from Fat" },
+                    { label: "18g", value: "Total Fat" },
+                    { label: "3g", value: "Saturated Fat" },
+                    { label: "<1g", value: "Trans Fat" },
+                    { label: "65g", value: "Total Carbohydrates" },
+                    { label: "8g", value: "Sugars" },
+                    { label: "20g", value: "Protein" },
+                    { label: "35mg", value: "Cholesterol" },
+                    { label: "900mg", value: "Sodium" },
+                    { label: "6g", value: "Dietary Fibre" },
+                  ]}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* --- Restaurant Tile & CTA Banner Below Main Section --- */}
+        <div className="flex flex-col gap-4 pb-8">
           <RestaurantTile
             logo="/assets/honeygrow-badge-icon.png"
-            name="Sushi Place"
-            cuisine="Japanese"
-            distance="1.2 mi"
+            name="Honeygrow"
+            cuisine="Healthy fast-casual"
+            locationCount={3}
+            dishCount={37}
+          />
+          <CtaBanner
+            icon={<svg className="h-5 w-5 text-indigo-700" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 20 20"><path strokeLinecap="round" strokeLinejoin="round" d="M12 4v1m0 10v1m8-5h-1M4 10H3m13.657-6.657l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 2.343l-.707-.707"/></svg>}
+            message="Does this dish match your dietary requirements?"
+            ctaLabel="Check with EveryBite"
+            ctaHref="#"
+            className="mt-2"
           />
         </div>
 
-        {/* --- Dish Detail Card --- */}
-        <div className="py-4">
-          <DishDetailCard
-            image="/assets/mediterranean-burger.png"
-            name="Sushi & Salad Combo"
-            calories={450}
-            sizes={2}
-            customizable={true}
-            description="A delicious combo of fresh sushi, crisp greens, and house-made dressing."
-            ingredients={["Salmon", "Avocado", "Rice", "Mixed Greens", "Sesame Seeds"]}
-            nutrition={{ protein: 22, fat: 14, carbs: 55 }}
-            onOrder={() => alert("Order placed!")}
-          />
+        {/* --- Dish Stats, Heart, and Order Button --- */}
+        <div className="flex items-center gap-4 py-4">
+          <DishStats calories={450} sizes={2} customizable={true} />
+          <HeartIcon active={true} className="text-red-500 w-6 h-6 cursor-pointer" />
+          <OrderButton onClick={() => {}}>
+            Order Now
+          </OrderButton>
         </div>
 
-        {/* --- Dietary Banner --- */}
-        <div className="py-2">
-          <DietaryBanner
-            items={[
-              { type: "vegan", text: "Vegan" },
-              { type: "gluten-free", text: "Gluten-Free" },
-              { type: "spicy", text: "Spicy" },
-            ]}
-          />
-        </div>
-
-        {/* --- Similar Dishes Carousel --- */}
-        <div className="py-8">
+        {/* --- Carousel of Related Dishes --- */}
+        <div className="pt-8">
           <CarouselContainer
             dishes={[
-              {
-                id: 1,
-                image: "/assets/dish-sushi-salad-combo.png",
-                name: "Sushi & Salad Combo with Salad",
-                category: "Menu Category",
-                calories: 123,
-                sizes: 3,
-                customizable: true,
-                favorite: true,
-              },
-              {
-                id: 2,
-                image: "/assets/dish-sushi-salad-combo.png",
-                name: "Chicken Teriyaki Bowl",
-                category: "Asian",
-                calories: 450,
-                sizes: 2,
-                customizable: false,
-                favorite: false,
-              },
-              {
-                id: 3,
-                image: "/assets/dish-sushi-salad-combo.png",
-                name: "Vegan Delight",
-                category: "Vegan",
-                calories: 320,
-                sizes: 1,
-                customizable: true,
-                favorite: false,
-              },
-              {
-                id: 4,
-                image: "/assets/dish-sushi-salad-combo.png",
-                name: "Pasta Primavera",
-                category: "Italian",
-                calories: 390,
-                sizes: 2,
-                customizable: true,
-                favorite: false,
-              },
-              {
-                id: 5,
-                image: "/assets/dish-sushi-salad-combo.png",
-                name: "BBQ Chicken Pizza",
-                category: "Pizza",
-                calories: 500,
-                sizes: 3,
-                customizable: false,
-                favorite: true,
-              },
+              { id: 1, image: "https://placehold.co/297x152", name: "Sushi & Salad Combo with Salad", category: "Menu Category", calories: 123, sizes: 3, customizable: true, favorite: true },
+              { id: 2, image: "https://placehold.co/297x152", name: "Chicken Teriyaki Bowl", category: "Asian", calories: 450, sizes: 2, customizable: false, favorite: false },
+              { id: 3, image: "https://placehold.co/297x152", name: "Vegan Delight", category: "Vegan", calories: 320, sizes: 1, customizable: true, favorite: false },
+              { id: 4, image: "https://placehold.co/297x152", name: "Pasta Primavera", category: "Italian", calories: 390, sizes: 2, customizable: true, favorite: false },
+              { id: 5, image: "https://placehold.co/297x152", name: "BBQ Chicken Pizza", category: "Pizza", calories: 500, sizes: 3, customizable: false, favorite: true },
             ]}
-            onOrder={(dish: Dish) => alert(`Order placed for ${dish.name}!`)}
-            onExploreAll={() => alert("Explore All clicked!")}
+            onOrder={() => {}}
+            onExploreAll={() => {}}
           />
         </div>
 
-        {/* --- Atomic Components Showcase --- */}
-        <AtomicShowcase />
+
+
+
       </PageContainer>
     </div>
   );
