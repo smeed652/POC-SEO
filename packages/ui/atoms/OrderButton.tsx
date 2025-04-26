@@ -9,6 +9,7 @@ export interface OrderButtonProps {
 /**
  * OrderButton atom — styled order button with trailing arrow SVG.
  */
+// NOTE: outline-1 and outline-indigo-700 are used as design tokens for button outline. Update if the design system changes.
 export const OrderButton: React.FC<OrderButtonProps> = ({ onClick, className = "", children }) => (
   <button
     onClick={onClick}

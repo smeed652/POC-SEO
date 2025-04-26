@@ -1,15 +1,15 @@
 import React from 'react';
-import logoUrl from '../assets/group1_everybite_logo.png';
+// Using static path for logo in public/assets
+// Logo atom for EveryBite. Renders the official logo image file (wordmark style).
+// Update the logo file in /public/assets if branding changes. Accepts className and style for flexibility.
+const defaultLogoUrl = '/assets/everybite-logo.png';
 
-/**
- * Logo atom for EveryBite. Use everywhere a brand logo is needed.
- */
 const Logo: React.FC<{ className?: string; style?: React.CSSProperties }> = ({ className = '', style = {} }) => (
   <img
-    src={logoUrl}
-    alt="EveryBite Logo"
-    className={`h-10 w-10 object-contain rounded-full ${className}`}
-    style={{ maxHeight: 40, ...style }}
+    src={defaultLogoUrl}
+    alt="EveryBite Logo wordmark"
+    className={className}
+    style={style}
   />
 );
 

@@ -9,6 +9,7 @@ export interface RestaurantLogoProps {
 /**
  * RestaurantLogo atom — displays the restaurant logo image.
  */
+// NOTE: w-10, h-10, rounded-full, border-zinc-200, and bg-white are design tokens for sizing, border, and background. Update if the design system changes.
 export const RestaurantLogo: React.FC<RestaurantLogoProps> = ({ src, alt, className = "" }) => (
   <img
     src={src}

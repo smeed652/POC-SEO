@@ -12,7 +12,8 @@ interface NavLinkProps {
  * NavLink atom for navigation links. Supports active state and custom font weight.
  */
 const NavLink: React.FC<NavLinkProps> = ({ href, children, className = '', active = false, fontWeight = 'medium' }) => {
-  const base = 'text-[#526176] text-sm leading-[19.6px] font-[\'Plus Jakarta Sans\'] hover:text-blue-700';
+  // font-sans is mapped to 'Plus Jakarta Sans' in Tailwind config for design system consistency
+  const base = 'text-[#526176] text-sm leading-[19.6px] font-sans hover:text-blue-700';
   const weight = fontWeight === 'bold' ? 'font-bold' : 'font-medium';
   const activeClass = active ? 'underline' : '';
   return (

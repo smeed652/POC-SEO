@@ -8,8 +8,9 @@ export interface DietaryTextProps {
 /**
  * DietaryText atom — displays dietary restriction text label.
  */
+// NOTE: font-sans uses 'Plus Jakarta Sans' as set in Tailwind config
 export const DietaryText: React.FC<DietaryTextProps> = ({ text, className = "" }) => (
-  <span className={`text-xs text-slate-600 font-['Plus_Jakarta_Sans'] ${className}`}>{text}</span>
+  <span className={`text-xs text-slate-600 font-sans ${className}`}>{text}</span>
 );
 
 export default DietaryText;
