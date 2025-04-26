@@ -11,6 +11,16 @@ export default meta;
 
 type Story = StoryObj<typeof RestaurantTile>;
 
+export const FigmaExample: Story = {
+  args: {
+    logo: "https://placehold.co/40x40?text=hg",
+    name: "Honeygrow",
+    cuisine: "Healthy fast-casual",
+    locationCount: 3,
+    dishCount: 37,
+  },
+};
+
 export const Default: Story = {
   args: {
     logo: "https://placehold.co/40x40",

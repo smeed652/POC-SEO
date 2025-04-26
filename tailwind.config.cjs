@@ -1,6 +1,9 @@
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
+    "./src/**/*.{js,jsx,ts,tsx,mdx}",
+    "./packages/ui/**/*.{js,jsx,ts,tsx,mdx}",
+    "./.storybook/**/*.{js,jsx,ts,tsx,mdx}",
+    "./stories/**/*.{js,jsx,ts,tsx,mdx}",
   ],
   theme: {
     extend: {
