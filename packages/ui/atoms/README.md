@@ -14,9 +14,10 @@
 
 ## Atomic Components Progress Tracker
 
+**Note:** Atoms are the smallest UI building blocks (e.g., Button, Icon, NavLink). More complex components like navigation bars are organisms and tracked separately.
+
 | Atom Name             | Figma Export | Component | Storybook | Docs/Props | Pixel Perfect | Done |
 |----------------------|:------------:|:---------:|:---------:|:----------:|:-------------:|:----:|
-| seo-navigation       | [ ]          | [ ]       | [ ]       | [ ]        | [ ]           | [ ]  |
 | seo-dish-image       | [ ]          | [ ]       | [ ]       | [ ]        | [ ]           | [ ]  |
 | seo-restaurant-tile  | [ ]          | [ ]       | [ ]       | [ ]        | [ ]           | [ ]  |
 | seo-dish-details     | [ ]          | [ ]       | [ ]       | [ ]        | [ ]           | [ ]  |
@@ -27,6 +28,14 @@
 | seo-banner           | [ ]          | [ ]       | [ ]       | [ ]        | [ ]           | [ ]  |
 | seo-dish-tile        | [ ]          | [ ]       | [ ]       | [ ]        | [ ]           | [ ]  |
 | seo-carousel         | [ ]          | [ ]       | [ ]       | [ ]        | [ ]           | [ ]  |
+
+---
+
+## Organisms Progress Tracker
+
+| Organism Name      | Figma Export | Component | Storybook | Docs/Props | Pixel Perfect | Done |
+|-------------------|:------------:|:---------:|:---------:|:----------:|:-------------:|:----:|
+| seo-navigation    | [ ]          | [ ]       | [ ]       | [ ]        | [ ]           | [ ]  |
 
 ---
 
