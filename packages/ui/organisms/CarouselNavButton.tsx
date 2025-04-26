@@ -9,6 +9,7 @@ export interface CarouselNavButtonProps {
 /**
  * CarouselNavButton organism — navigation arrow button for carousels.
  */
+// NOTE: absolute, top-1/2, -translate-y-1/2, z-10, bg-transparent, p-0, and border-none are design tokens for layout, positioning, and appearance. Update if the design system changes.
 export const CarouselNavButton: React.FC<CarouselNavButtonProps> = ({ direction, onClick, className = "" }) => (
   <button
     onClick={onClick}

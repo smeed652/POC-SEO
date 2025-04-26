@@ -15,6 +15,7 @@ export interface CarouselContainerProps {
  * CarouselContainer organism — full carousel section, composes header, nav buttons, and card list.
  * Handles horizontal scrolling via nav buttons.
  */
+// NOTE: relative, w-full, max-w-[1280px], mx-auto, flex, items-center, overflow-x-auto, left-[-27px], and right-[-27px] are design tokens for layout, sizing, and spacing. Update if the design system changes.
 export const CarouselContainer: React.FC<CarouselContainerProps> = ({ dishes, onOrder, onExploreAll, className = "" }) => {
   const listRef = useRef<HTMLDivElement>(null);
 

@@ -9,12 +9,13 @@ export interface CarouselHeaderProps {
 /**
  * CarouselHeader organism — displays carousel section title and "Explore All" button.
  */
+// NOTE: flex, justify-between, items-center, mb-4, text-slate-900, text-xl, font-bold, text-slate-600, text-sm, font-medium, font-sans, leading-tight, gap-1, and hover:underline are design tokens for layout, spacing, color, and typography. Update if the design system changes.
 export const CarouselHeader: React.FC<CarouselHeaderProps> = ({ title, onExploreAll, className = "" }) => (
   <div className={`flex justify-between items-center mb-4 ${className}`}>
-    <div className="text-slate-900 text-xl font-bold font-['Plus_Jakarta_Sans']">{title}</div>
+    <div className="text-slate-900 text-xl font-bold font-sans">{title}</div>
     <button
       onClick={onExploreAll}
-      className="flex items-center gap-1 text-slate-600 text-sm font-medium font-['Plus_Jakarta_Sans'] leading-tight hover:underline"
+      className="flex items-center gap-1 text-slate-600 text-sm font-medium font-sans leading-tight hover:underline"
       type="button"
     >
       Explore All
